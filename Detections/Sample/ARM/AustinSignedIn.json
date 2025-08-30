@@ -25,7 +25,7 @@
         "description": "This is a test rule designed to alert and create an incident when I sign into the environment.",
         "displayName": "Austin Signed in.",
         "enabled": true,
-        "query": "union isfuzzy=true SigninLogs, workspace("/subscriptions/93202e38-f0dd-48d6-8056-c845486757b3/resourcegroups/sentinel-lab/providers/microsoft.OperationalInsights/workspaces/LogAnalytics-Lab").Usage| where UserId == "04b709d5-4d7d-4da4-9a56-877297187072"",
+        "query": "\nunion isfuzzy=true SigninLogs, workspace("/subscriptions/93202e38-f0dd-48d6-8056-c845486757b3/resourcegroups/sentinel-lab/providers/microsoft.OperationalInsights/workspaces/LogAnalytics-Lab").Usage\n| where UserId == "04b709d5-4d7d-4da4-9a56-877297187072"",
         "queryFrequency": "P5M",
         "queryPeriod": "P5M",
         "severity": "Informational",
@@ -33,6 +33,11 @@
         "suppressionEnabled": false,
         "triggerOperator": "GreaterThan",
         "triggerThreshold": 0,
+        "tactics": [
+          "InitialAccess",
+          "CommandAndControl",
+          "Execution"
+        ]
       }
     }
   ]
